@@ -1,0 +1,1576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.1.14
+- http://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: Mar 05, 2016 at 05:36 AM
+- Server version: 5.6.17
+- PHP Version: 5.5.12
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="vvnlive" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="adminlogin">
+                CREATE TABLE `adminlogin` (
+                  `aid` int(50) NOT NULL AUTO_INCREMENT,
+                  `username` varchar(100) NOT NULL,
+                  `password` varchar(100) NOT NULL,
+                  PRIMARY KEY (`aid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="adsinformation">
+                CREATE TABLE `adsinformation` (
+                  `adsinfoid` int(100) NOT NULL AUTO_INCREMENT,
+                  `adname` varchar(200) NOT NULL,
+                  `adsid` int(100) NOT NULL,
+                  `fromdate` date NOT NULL,
+                  `todate` date NOT NULL,
+                  `adsimagepath` varchar(100) NOT NULL,
+                  `adsurl` varchar(500) NOT NULL,
+                  `adstotalamount` int(100) NOT NULL,
+                  `categoryid` int(100) NOT NULL,
+                  `businessid` int(100) NOT NULL,
+                  `confirm` bigint(1) NOT NULL,
+                  `payment` bigint(2) NOT NULL,
+                  `cart` bigint(2) NOT NULL,
+                  PRIMARY KEY (`adsinfoid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="adspackagedetail">
+                CREATE TABLE `adspackagedetail` (
+                  `adsid` int(200) NOT NULL AUTO_INCREMENT,
+                  `adspage` varchar(100) NOT NULL,
+                  `width` bigint(20) NOT NULL,
+                  `height` bigint(20) NOT NULL,
+                  `adsprice` int(100) NOT NULL,
+                  PRIMARY KEY (`adsid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="businessdetail">
+                CREATE TABLE `businessdetail` (
+                  `businessid` int(200) NOT NULL AUTO_INCREMENT,
+                  `categoryid` int(100) NOT NULL,
+                  `businessname` varchar(100) NOT NULL,
+                  `businessdescription` varchar(200) NOT NULL,
+                  `businessaddress` varchar(200) NOT NULL,
+                  `businesspincode` int(6) NOT NULL,
+                  `landmarkid` int(50) NOT NULL,
+                  `businesscno` bigint(10) NOT NULL,
+                  `businessemail` varchar(50) NOT NULL,
+                  `businessimagepath` varchar(100) NOT NULL,
+                  `businessstarttime` time NOT NULL,
+                  `businessendtime` time NOT NULL,
+                  `businesscloseday` varchar(10) NOT NULL,
+                  `businesssite` varchar(50) NOT NULL,
+                  PRIMARY KEY (`businessid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="careers">
+                CREATE TABLE `careers` (
+                  `careersid` int(10) NOT NULL AUTO_INCREMENT,
+                  `fullname` varchar(50) NOT NULL,
+                  `designation` varchar(50) NOT NULL,
+                  `email` varchar(50) NOT NULL,
+                  `institution` varchar(100) NOT NULL,
+                  `keyskills` varchar(100) NOT NULL,
+                  `qualification` varchar(100) NOT NULL,
+                  `phone` bigint(20) NOT NULL,
+                  `resumepath` varchar(200) NOT NULL,
+                  `reviewed` int(2) NOT NULL,
+                  PRIMARY KEY (`careersid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="contactus">
+                CREATE TABLE `contactus` (
+                  `contactid` int(11) NOT NULL AUTO_INCREMENT,
+                  `firstname` varchar(30) NOT NULL,
+                  `telephone` bigint(10) NOT NULL,
+                  `email` varchar(50) NOT NULL,
+                  `inquirytype` varchar(100) NOT NULL,
+                  `message` varchar(300) NOT NULL,
+                  `reviewed` int(2) NOT NULL DEFAULT '0',
+                  PRIMARY KEY (`contactid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="coupondetail">
+                CREATE TABLE `coupondetail` (
+                  `couponid` int(11) NOT NULL AUTO_INCREMENT,
+                  `couponno` varchar(100) NOT NULL,
+                  `categoryid` int(50) NOT NULL,
+                  `businessid` int(200) NOT NULL,
+                  `couponproductamount` int(100) NOT NULL,
+                  `coupondescription` varchar(200) NOT NULL,
+                  `fromdate` date NOT NULL,
+                  `todate` date NOT NULL,
+                  `couponstatus` varchar(100) NOT NULL,
+                  `couponlogo` varchar(50) NOT NULL,
+                  `couponname` varchar(200) NOT NULL,
+                  `cashback` varchar(300) NOT NULL,
+                  `cashbackdesc` varchar(200) NOT NULL,
+                  PRIMARY KEY (`couponid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="landmarkdetail">
+                CREATE TABLE `landmarkdetail` (
+                  `landmarkid` int(50) NOT NULL AUTO_INCREMENT,
+                  `landmarkname` varchar(100) NOT NULL,
+                  PRIMARY KEY (`landmarkid`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="productcategorydetail">
+                CREATE TABLE `productcategorydetail` (
+                  `ID` int(11) NOT NULL AUTO_INCREMENT,
+                  `IMAGE` varchar(300) NOT NULL,
+                  `NAME` text NOT NULL,
+                  PRIMARY KEY (`ID`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="productdetail">
+                CREATE TABLE `productdetail` (
+                  `productid` int(50) NOT NULL AUTO_INCREMENT,
+                  `productname` varchar(100) NOT NULL,
+                  `productimagepath` varchar(100) NOT NULL,
+                  `productdescription` varchar(200) NOT NULL,
+                  `productprice` int(50) NOT NULL,
+                  `unitid` int(50) NOT NULL,
+                  `businessid` int(100) NOT NULL,
+                  `categoryid` int(50) NOT NULL,
+                  `vendorid` varchar(50) NOT NULL,
+                  PRIMARY KEY (`productid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="reviewdetail">
+                CREATE TABLE `reviewdetail` (
+                  `reviewid` int(200) NOT NULL AUTO_INCREMENT,
+                  `firstname` varchar(100) NOT NULL,
+                  `lastname` varchar(100) NOT NULL,
+                  `cno` bigint(100) NOT NULL,
+                  `email` varchar(100) NOT NULL,
+                  `password` varchar(300) NOT NULL,
+                  PRIMARY KEY (`reviewid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="rikshawbanner">
+                CREATE TABLE `rikshawbanner` (
+                  `rid` bigint(5) NOT NULL AUTO_INCREMENT,
+                  `size` bigint(2) NOT NULL,
+                  `quantity` bigint(5) NOT NULL,
+                  `month1` bigint(10) NOT NULL,
+                  `month2` bigint(10) NOT NULL,
+                  `month3` bigint(10) NOT NULL,
+                  PRIMARY KEY (`rid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="rikshawbannerdetail">
+                CREATE TABLE `rikshawbannerdetail` (
+                  `bnid` bigint(10) NOT NULL AUTO_INCREMENT,
+                  `bannername` varchar(20) NOT NULL,
+                  `size` bigint(2) NOT NULL,
+                  `quantity` bigint(15) NOT NULL,
+                  `duration` bigint(2) NOT NULL,
+                  `price` bigint(10) NOT NULL,
+                  `requestdate` date NOT NULL,
+                  `businessid` int(10) NOT NULL,
+                  PRIMARY KEY (`bnid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="rikshawbannersize">
+                CREATE TABLE `rikshawbannersize` (
+                  `size` int(10) NOT NULL AUTO_INCREMENT,
+                  `sizename` varchar(100) NOT NULL,
+                  PRIMARY KEY (`size`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="rikshawdetail">
+                CREATE TABLE `rikshawdetail` (
+                  `roid` int(10) NOT NULL AUTO_INCREMENT,
+                  `name` varchar(50) NOT NULL,
+                  `mobile1` bigint(10) NOT NULL,
+                  `mobile2` bigint(10) DEFAULT NULL,
+                  `rikshawno` varchar(10) NOT NULL,
+                  `parkingloc` varchar(200) NOT NULL,
+                  `drivingroute` varchar(200) NOT NULL,
+                  `address` varchar(200) NOT NULL,
+                  `adpackage` varchar(20) NOT NULL,
+                  PRIMARY KEY (`roid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="socialmediapackagedetail">
+                CREATE TABLE `socialmediapackagedetail` (
+                  `socialmediaid` int(50) NOT NULL AUTO_INCREMENT,
+                  `socialmedianame` varchar(100) NOT NULL,
+                  `socialmediaprice` int(100) NOT NULL,
+                  `socialmediaquantity` int(100) NOT NULL,
+                  PRIMARY KEY (`socialmediaid`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="socialsharingdetail">
+                CREATE TABLE `socialsharingdetail` (
+                  `socialsharingid` int(100) NOT NULL AUTO_INCREMENT,
+                  `socialmediaid` int(100) NOT NULL,
+                  `businessid` int(100) NOT NULL,
+                  `categoryid` int(50) NOT NULL,
+                  `sharingdate` date NOT NULL,
+                  `quantityrequested` int(100) NOT NULL,
+                  `sharingamount` int(100) NOT NULL,
+                  `sharingdescription` varchar(200) NOT NULL,
+                  `sharingimagepath` varchar(200) NOT NULL,
+                  `status` varchar(100) NOT NULL,
+                  PRIMARY KEY (`socialsharingid`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="templateprinting">
+                CREATE TABLE `templateprinting` (
+                  `tid` int(11) NOT NULL AUTO_INCREMENT,
+                  `quantity` bigint(10) NOT NULL,
+                  `sidea51` bigint(10) NOT NULL,
+                  `sidea52` bigint(10) NOT NULL,
+                  `sidea41` bigint(10) NOT NULL,
+                  `sidea42` bigint(10) NOT NULL,
+                  `sidea31` bigint(10) NOT NULL,
+                  `sidea32` bigint(10) NOT NULL,
+                  PRIMARY KEY (`tid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="templateprintingdetail">
+                CREATE TABLE `templateprintingdetail` (
+                  `tempid` int(10) NOT NULL AUTO_INCREMENT,
+                  `templatename` varchar(20) NOT NULL,
+                  `size` varchar(5) NOT NULL,
+                  `side` bigint(2) NOT NULL,
+                  `quantity` bigint(10) NOT NULL,
+                  `price` bigint(10) NOT NULL,
+                  `requestdate` date NOT NULL,
+                  `businessid` bigint(10) NOT NULL,
+                  PRIMARY KEY (`tempid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="unit">
+                CREATE TABLE `unit` (
+                  `ID` int(11) NOT NULL AUTO_INCREMENT,
+                  `NAME` varchar(50) DEFAULT NULL,
+                  PRIMARY KEY (`ID`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="vendordetail">
+                CREATE TABLE `vendordetail` (
+                  `vendorid` int(200) NOT NULL AUTO_INCREMENT,
+                  `categoryid` int(200) NOT NULL,
+                  `firstname` varchar(100) NOT NULL,
+                  `lastname` varchar(100) NOT NULL,
+                  `vendoraddress` varchar(200) NOT NULL,
+                  `vendorcno` bigint(200) NOT NULL,
+                  `vendoremail` varchar(100) NOT NULL,
+                  `gender` varchar(10) NOT NULL,
+                  `birthdate` date NOT NULL,
+                  `username` varchar(100) NOT NULL,
+                  `password` varchar(200) NOT NULL,
+                  `pincode` bigint(100) NOT NULL,
+                  `businessid` int(50) NOT NULL,
+                  `vendorimagepath` varchar(100) NOT NULL,
+                  PRIMARY KEY (`vendorid`),
+                  KEY `categoryid` (`categoryid`),
+                  KEY `categoryid_2` (`categoryid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'vvnlive'
+    -->
+    <database name="vvnlive">
+        <!-- Table adminlogin -->
+        <table name="adminlogin">
+            <column name="aid">1</column>
+            <column name="username">rushit</column>
+            <column name="password">123456</column>
+        </table>
+        <table name="adminlogin">
+            <column name="aid">2</column>
+            <column name="username">pratik</column>
+            <column name="password">123456</column>
+        </table>
+        <!-- Table adsinformation -->
+        <table name="adsinformation">
+            <column name="adsinfoid">92</column>
+            <column name="adname">horizontal</column>
+            <column name="adsid">3</column>
+            <column name="fromdate">1970-01-01</column>
+            <column name="todate">1970-01-01</column>
+            <column name="adsimagepath">simages/horizontal21335.jpg</column>
+            <column name="adsurl">http://www.vvnlive.co.in/</column>
+            <column name="adstotalamount">30</column>
+            <column name="categoryid">26</column>
+            <column name="businessid">60</column>
+            <column name="confirm">1</column>
+            <column name="payment">1</column>
+            <column name="cart">0</column>
+        </table>
+        <table name="adsinformation">
+            <column name="adsinfoid">96</column>
+            <column name="adname">rucat</column>
+            <column name="adsid">5</column>
+            <column name="fromdate">2016-02-18</column>
+            <column name="todate">2016-02-26</column>
+            <column name="adsimagepath">simages/rucat1827.jpg</column>
+            <column name="adsurl">http://www.vvnlive.co.in/</column>
+            <column name="adstotalamount">30</column>
+            <column name="categoryid">10</column>
+            <column name="businessid">64</column>
+            <column name="confirm">1</column>
+            <column name="payment">1</column>
+            <column name="cart">0</column>
+        </table>
+        <table name="adsinformation">
+            <column name="adsinfoid">97</column>
+            <column name="adname">gfgvhb</column>
+            <column name="adsid">5</column>
+            <column name="fromdate">2016-02-23</column>
+            <column name="todate">2016-02-29</column>
+            <column name="adsimagepath">simages/gfgvhb24080.jpg</column>
+            <column name="adsurl">http://pkrathod1994.wix.com/home</column>
+            <column name="adstotalamount">30</column>
+            <column name="categoryid">10</column>
+            <column name="businessid">64</column>
+            <column name="confirm">1</column>
+            <column name="payment">1</column>
+            <column name="cart">0</column>
+        </table>
+        <table name="adsinformation">
+            <column name="adsinfoid">98</column>
+            <column name="adname">defaultcat</column>
+            <column name="adsid">8</column>
+            <column name="fromdate">2016-02-25</column>
+            <column name="todate">2016-03-24</column>
+            <column name="adsimagepath">simages/defaultcat2586.jpg</column>
+            <column name="adsurl">http://www.vvnlive.co.in/</column>
+            <column name="adstotalamount">50</column>
+            <column name="categoryid">10</column>
+            <column name="businessid">64</column>
+            <column name="confirm">1</column>
+            <column name="payment">1</column>
+            <column name="cart">0</column>
+        </table>
+        <table name="adsinformation">
+            <column name="adsinfoid">99</column>
+            <column name="adname">chgjhkj</column>
+            <column name="adsid">2</column>
+            <column name="fromdate">1970-01-01</column>
+            <column name="todate">1970-01-01</column>
+            <column name="adsimagepath">simages/chgjhkj24490.jpg</column>
+            <column name="adsurl">http://www.vvnlive.co.in/</column>
+            <column name="adstotalamount">50</column>
+            <column name="categoryid">10</column>
+            <column name="businessid">64</column>
+            <column name="confirm">1</column>
+            <column name="payment">1</column>
+            <column name="cart">0</column>
+        </table>
+        <table name="adsinformation">
+            <column name="adsinfoid">100</column>
+            <column name="adname">newad</column>
+            <column name="adsid">1</column>
+            <column name="fromdate">2016-02-20</column>
+            <column name="todate">2016-02-27</column>
+            <column name="adsimagepath">simages/new ad15842.jpg</column>
+            <column name="adsurl">http://www.vvnlive.co.in/</column>
+            <column name="adstotalamount">100</column>
+            <column name="categoryid">26</column>
+            <column name="businessid">65</column>
+            <column name="confirm">1</column>
+            <column name="payment">1</column>
+            <column name="cart">0</column>
+        </table>
+        <table name="adsinformation">
+            <column name="adsinfoid">104</column>
+            <column name="adname">first</column>
+            <column name="adsid">2</column>
+            <column name="fromdate">2016-02-26</column>
+            <column name="todate">2016-02-27</column>
+            <column name="adsimagepath">simages/first27787.jpg</column>
+            <column name="adsurl">http://abc.com</column>
+            <column name="adstotalamount">100</column>
+            <column name="categoryid">26</column>
+            <column name="businessid">60</column>
+            <column name="confirm">1</column>
+            <column name="payment">1</column>
+            <column name="cart">0</column>
+        </table>
+        <table name="adsinformation">
+            <column name="adsinfoid">106</column>
+            <column name="adname">fhgjhj</column>
+            <column name="adsid">4</column>
+            <column name="fromdate">2016-02-26</column>
+            <column name="todate">2016-02-27</column>
+            <column name="adsimagepath">simages/fhgjhj19000.jpg</column>
+            <column name="adsurl">http://materializecss.com/about.html</column>
+            <column name="adstotalamount">20</column>
+            <column name="categoryid">26</column>
+            <column name="businessid">60</column>
+            <column name="confirm">1</column>
+            <column name="payment">1</column>
+            <column name="cart">0</column>
+        </table>
+        <table name="adsinformation">
+            <column name="adsinfoid">107</column>
+            <column name="adname">gvhbjn</column>
+            <column name="adsid">2</column>
+            <column name="fromdate">2016-02-27</column>
+            <column name="todate">2016-02-29</column>
+            <column name="adsimagepath">simages/gvhbjn24014.jpg</column>
+            <column name="adsurl">http://materializecss.com/about.html</column>
+            <column name="adstotalamount">50</column>
+            <column name="categoryid">26</column>
+            <column name="businessid">60</column>
+            <column name="confirm">1</column>
+            <column name="payment">1</column>
+            <column name="cart">0</column>
+        </table>
+        <table name="adsinformation">
+            <column name="adsinfoid">108</column>
+            <column name="adname">tfyguhj</column>
+            <column name="adsid">8</column>
+            <column name="fromdate">2016-02-29</column>
+            <column name="todate">2016-02-29</column>
+            <column name="adsimagepath">simages/tfyguhj20217.jpg</column>
+            <column name="adsurl">http://materializecss.com/about.html</column>
+            <column name="adstotalamount">50</column>
+            <column name="categoryid">26</column>
+            <column name="businessid">60</column>
+            <column name="confirm">2</column>
+            <column name="payment">0</column>
+            <column name="cart">0</column>
+        </table>
+        <table name="adsinformation">
+            <column name="adsinfoid">109</column>
+            <column name="adname">fgjhjlk</column>
+            <column name="adsid">3</column>
+            <column name="fromdate">2016-02-28</column>
+            <column name="todate">2016-03-22</column>
+            <column name="adsimagepath">simages/fgjhjlk25649.png</column>
+            <column name="adsurl">http://materializecss.com/about.html</column>
+            <column name="adstotalamount">30</column>
+            <column name="categoryid">26</column>
+            <column name="businessid">60</column>
+            <column name="confirm">1</column>
+            <column name="payment">0</column>
+            <column name="cart">0</column>
+        </table>
+        <!-- Table adspackagedetail -->
+        <table name="adspackagedetail">
+            <column name="adsid">1</column>
+            <column name="adspage">homepage</column>
+            <column name="width">1366</column>
+            <column name="height">400</column>
+            <column name="adsprice">100</column>
+        </table>
+        <table name="adspackagedetail">
+            <column name="adsid">2</column>
+            <column name="adspage">allpages</column>
+            <column name="width">300</column>
+            <column name="height">250</column>
+            <column name="adsprice">50</column>
+        </table>
+        <table name="adspackagedetail">
+            <column name="adsid">3</column>
+            <column name="adspage">allpages</column>
+            <column name="width">786</column>
+            <column name="height">90</column>
+            <column name="adsprice">30</column>
+        </table>
+        <table name="adspackagedetail">
+            <column name="adsid">4</column>
+            <column name="adspage">allpages</column>
+            <column name="width">326</column>
+            <column name="height">280</column>
+            <column name="adsprice">20</column>
+        </table>
+        <table name="adspackagedetail">
+            <column name="adsid">5</column>
+            <column name="adspage">allpages</column>
+            <column name="width">320</column>
+            <column name="height">100</column>
+            <column name="adsprice">30</column>
+        </table>
+        <table name="adspackagedetail">
+            <column name="adsid">7</column>
+            <column name="adspage">allpages</column>
+            <column name="width">130</column>
+            <column name="height">500</column>
+            <column name="adsprice">50</column>
+        </table>
+        <table name="adspackagedetail">
+            <column name="adsid">8</column>
+            <column name="adspage">categorypages</column>
+            <column name="width">300</column>
+            <column name="height">250</column>
+            <column name="adsprice">50</column>
+        </table>
+        <table name="adspackagedetail">
+            <column name="adsid">9</column>
+            <column name="adspage">categorypages</column>
+            <column name="width">130</column>
+            <column name="height">500</column>
+            <column name="adsprice">60</column>
+        </table>
+        <table name="adspackagedetail">
+            <column name="adsid">10</column>
+            <column name="adspage">categorypages</column>
+            <column name="width">728</column>
+            <column name="height">90</column>
+            <column name="adsprice">40</column>
+        </table>
+        <table name="adspackagedetail">
+            <column name="adsid">11</column>
+            <column name="adspage">categorypages</column>
+            <column name="width">326</column>
+            <column name="height">280</column>
+            <column name="adsprice">55</column>
+        </table>
+        <table name="adspackagedetail">
+            <column name="adsid">12</column>
+            <column name="adspage">categorypages</column>
+            <column name="width">320</column>
+            <column name="height">100</column>
+            <column name="adsprice">45</column>
+        </table>
+        <!-- Table businessdetail -->
+        <table name="businessdetail">
+            <column name="businessid">60</column>
+            <column name="categoryid">26</column>
+            <column name="businessname">Source Code Info Tech</column>
+            <column name="businessdescription">it based solution company</column>
+            <column name="businessaddress">Near bhaikaka,
+vvnagar,
+anand</column>
+            <column name="businesspincode">360400</column>
+            <column name="landmarkid">1</column>
+            <column name="businesscno">9409456695</column>
+            <column name="businessemail">pr@gmail.com</column>
+            <column name="businessimagepath">businessimages/abc40506.jpg</column>
+            <column name="businessstarttime">09:00:00</column>
+            <column name="businessendtime">18:00:00</column>
+            <column name="businesscloseday">Sunday</column>
+            <column name="businesssite">wnrk.com</column>
+        </table>
+        <table name="businessdetail">
+            <column name="businessid">64</column>
+            <column name="categoryid">10</column>
+            <column name="businessname">no business</column>
+            <column name="businessdescription">finding</column>
+            <column name="businessaddress">halol</column>
+            <column name="businesspincode">364060</column>
+            <column name="landmarkid">40</column>
+            <column name="businesscno">9494565623</column>
+            <column name="businessemail">ru@gmail.com</column>
+            <column name="businessimagepath">businessimages/no business7065.jpg</column>
+            <column name="businessstarttime">05:05:00</column>
+            <column name="businessendtime">22:10:00</column>
+            <column name="businesscloseday">Sunday</column>
+            <column name="businesssite">ru.com</column>
+        </table>
+        <table name="businessdetail">
+            <column name="businessid">65</column>
+            <column name="categoryid">26</column>
+            <column name="businessname">New Business</column>
+            <column name="businessdescription">sadi lai lo</column>
+            <column name="businessaddress">jetpur</column>
+            <column name="businesspincode">34562</column>
+            <column name="landmarkid">45</column>
+            <column name="businesscno">9000050020</column>
+            <column name="businessemail">kevin@gmail.com</column>
+            <column name="businessimagepath">businessimages/New Business22734.jpg</column>
+            <column name="businessstarttime">09:00:00</column>
+            <column name="businessendtime">20:00:00</column>
+            <column name="businesscloseday">Sunday</column>
+            <column name="businesssite">kevin.com</column>
+        </table>
+        <table name="businessdetail">
+            <column name="businessid">66</column>
+            <column name="categoryid">26</column>
+            <column name="businessname">software company</column>
+            <column name="businessdescription">php,android</column>
+            <column name="businessaddress">anand</column>
+            <column name="businesspincode">388012</column>
+            <column name="landmarkid">14</column>
+            <column name="businesscno">6030405060</column>
+            <column name="businessemail">sc@gmail.com</column>
+            <column name="businessimagepath">businessimages/software company7065.jpg</column>
+            <column name="businessstarttime">08:08:00</column>
+            <column name="businessendtime">09:09:00</column>
+            <column name="businesscloseday">sunday</column>
+            <column name="businesssite">abc.com</column>
+        </table>
+        <!-- Table careers -->
+        <table name="careers">
+            <column name="careersid">1</column>
+            <column name="fullname">hbkjl</column>
+            <column name="designation">ljk;l</column>
+            <column name="email">pe@gmail.com</column>
+            <column name="institution">jgyuh</column>
+            <column name="keyskills">uhijklkjlkl</column>
+            <column name="qualification">kbjlk;l</column>
+            <column name="phone">86741</column>
+            <column name="resumepath">86741.pdf</column>
+            <column name="reviewed">0</column>
+        </table>
+        <table name="careers">
+            <column name="careersid">2</column>
+            <column name="fullname">uygh</column>
+            <column name="designation">iuhoij</column>
+            <column name="email">huij@g.com</column>
+            <column name="institution">iuhji</column>
+            <column name="keyskills">giuhji</column>
+            <column name="qualification">hj</column>
+            <column name="phone">0</column>
+            <column name="resumepath">2.pdf</column>
+            <column name="reviewed">0</column>
+        </table>
+        <table name="careers">
+            <column name="careersid">3</column>
+            <column name="fullname">vhjk</column>
+            <column name="designation">uhoij</column>
+            <column name="email">uyhujik@g.com</column>
+            <column name="institution">uygiuhoij</column>
+            <column name="keyskills">iuhoij</column>
+            <column name="qualification">hjiuhoij</column>
+            <column name="phone">9865312</column>
+            <column name="resumepath">3.pdf</column>
+            <column name="reviewed">0</column>
+        </table>
+        <table name="careers">
+            <column name="careersid">4</column>
+            <column name="fullname">jnk</column>
+            <column name="designation">jlkl</column>
+            <column name="email">bkjlk@g.com</column>
+            <column name="institution">kbjl</column>
+            <column name="keyskills">kjl</column>
+            <column name="qualification">jlkl</column>
+            <column name="phone">0</column>
+            <column name="resumepath">4.pdf</column>
+            <column name="reviewed">0</column>
+        </table>
+        <!-- Table contactus -->
+        <table name="contactus">
+            <column name="contactid">4</column>
+            <column name="firstname">rushit</column>
+            <column name="telephone">787878787</column>
+            <column name="email">khj@gmail.com</column>
+            <column name="inquirytype">1</column>
+            <column name="message">ghkjn</column>
+            <column name="reviewed">0</column>
+        </table>
+        <table name="contactus">
+            <column name="contactid">5</column>
+            <column name="firstname">rushit</column>
+            <column name="telephone">7046609001</column>
+            <column name="email">ru@gmail.com</column>
+            <column name="inquirytype">5</column>
+            <column name="message">jnkjbn</column>
+            <column name="reviewed">0</column>
+        </table>
+        <table name="contactus">
+            <column name="contactid">6</column>
+            <column name="firstname">tfugyhj</column>
+            <column name="telephone">8421574512</column>
+            <column name="email">uyghjk@g.com</column>
+            <column name="inquirytype">1</column>
+            <column name="message">chgvjhbkjn</column>
+            <column name="reviewed">0</column>
+        </table>
+        <!-- Table coupondetail -->
+        <table name="coupondetail">
+            <column name="couponid">35</column>
+            <column name="couponno">VVNLIVE212</column>
+            <column name="categoryid">5</column>
+            <column name="businessid">60</column>
+            <column name="couponproductamount">0</column>
+            <column name="coupondescription">Flat 22 Rs Off On All Products</column>
+            <column name="fromdate">2016-02-03</column>
+            <column name="todate">2016-02-12</column>
+            <column name="couponstatus">waiting</column>
+            <column name="couponlogo">couponimages/ass.jpg</column>
+            <column name="couponname">Free Sizzler</column>
+            <column name="cashback">Get Coupon Code and Get 23 Rs Cashback</column>
+            <column name="cashbackdesc">Get 23 Rs Cashback</column>
+        </table>
+        <table name="coupondetail">
+            <column name="couponid">39</column>
+            <column name="couponno">VVNLIVE22</column>
+            <column name="categoryid">5</column>
+            <column name="businessid">60</column>
+            <column name="couponproductamount">30</column>
+            <column name="coupondescription">Get Free Pendrive on Above Bill of 23 Rs </column>
+            <column name="fromdate">2016-02-06</column>
+            <column name="todate">2016-02-11</column>
+            <column name="couponstatus">verified</column>
+            <column name="couponlogo">couponimages/Dhamaka Offer30615.jpg</column>
+            <column name="couponname">Dhamaka Offer</column>
+            <column name="cashback">Get Coupon Code and Get 22 Rs Cashback</column>
+            <column name="cashbackdesc">Get 22 Rs Cashback</column>
+        </table>
+        <!-- Table landmarkdetail -->
+        <!-- Table productcategorydetail -->
+        <table name="productcategorydetail">
+            <column name="ID">1</column>
+            <column name="IMAGE">ProductCategoryImages/industrialPlant.jpg</column>
+            <column name="NAME">Industrial Plant &amp; Machine</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">2</column>
+            <column name="IMAGE">ProductCategoryImages/Electronicelectric.jpg</column>
+            <column name="NAME">Electronics &amp; Electrical</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">3</column>
+            <column name="IMAGE">ProductCategoryImages/industrialSupplies.jpg</column>
+            <column name="NAME">Industrial Supplies</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">4</column>
+            <column name="IMAGE">ProductCategoryImages/building.jpg</column>
+            <column name="NAME">Building &amp; Construction</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">5</column>
+            <column name="IMAGE">ProductCategoryImages/ApparelGarments.jpg</column>
+            <column name="NAME">Apparel &amp; Garments</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">6</column>
+            <column name="IMAGE">ProductCategoryImages/foodBeverages.jpg</column>
+            <column name="NAME">Food &amp; Beverages</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">7</column>
+            <column name="IMAGE">ProductCategoryImages/Medical.jpg</column>
+            <column name="NAME">Medical &amp; Healthcare</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">8</column>
+            <column name="IMAGE">ProductCategoryImages/PackagingMachines.jpg</column>
+            <column name="NAME">Packaging Machines &amp; Goods</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">9</column>
+            <column name="IMAGE">ProductCategoryImages/chemical.jpg</column>
+            <column name="NAME">Chemicals, Dyes &amp; Solvents</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">10</column>
+            <column name="IMAGE">ProductCategoryImages/MechanicalPart.jpg</column>
+            <column name="NAME">Mechanical Parts &amp; Spares</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">11</column>
+            <column name="IMAGE">ProductCategoryImages/LabInstrumentsSupplies.jpg</column>
+            <column name="NAME">Lab Instruments &amp; Supplies</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">12</column>
+            <column name="IMAGE">ProductCategoryImages/furniture.jpg</column>
+            <column name="NAME">Furniture &amp; Supplies</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">13</column>
+            <column name="IMAGE">ProductCategoryImages/Agriculture.jpg</column>
+            <column name="NAME">Agriculture &amp; Farming</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">14</column>
+            <column name="IMAGE">ProductCategoryImages/automobile.jpg</column>
+            <column name="NAME">Automobile, Parts &amp; Spares</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">15</column>
+            <column name="IMAGE">ProductCategoryImages/HouseWare.jpg</column>
+            <column name="NAME">Housewares &amp; Supplies</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">16</column>
+            <column name="IMAGE">ProductCategoryImages/Metals.jpg</column>
+            <column name="NAME">Metals, Alloys &amp; Minerals</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">17</column>
+            <column name="IMAGE">ProductCategoryImages/HandMachineTools.jpg</column>
+            <column name="NAME">Hand &amp; Machine Tools</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">18</column>
+            <column name="IMAGE">ProductCategoryImages/handcrafts.jpg</column>
+            <column name="NAME">Handicrafts &amp; Decoratives</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">19</column>
+            <column name="IMAGE">ProductCategoryImages/KitchenUtensile.jpg</column>
+            <column name="NAME">Kitchen Utensils &amp; Appliances</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">20</column>
+            <column name="IMAGE">ProductCategoryImages/TextilesYarnFabrics.jpg</column>
+            <column name="NAME">Textiles, Yarn &amp; Fabrics</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">21</column>
+            <column name="IMAGE">ProductCategoryImages/books and stationary.jpg</column>
+            <column name="NAME">Books &amp; Stationery</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">22</column>
+            <column name="IMAGE">ProductCategoryImages/cosmetic.jpg</column>
+            <column name="NAME">Cosmetics &amp; Personal Care</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">23</column>
+            <column name="IMAGE">ProductCategoryImages/hometextile.jpg</column>
+            <column name="NAME">Home Textile &amp; Furnishing</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">24</column>
+            <column name="IMAGE">ProductCategoryImages/engineeringServices.jpg</column>
+            <column name="NAME">Engineering Services</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">25</column>
+            <column name="IMAGE">ProductCategoryImages/gemsJewellary.jpg</column>
+            <column name="NAME">Gems, Jewelry &amp; Astrology</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">26</column>
+            <column name="IMAGE">ProductCategoryImages/computers.jpg</column>
+            <column name="NAME">Computer &amp; IT Solutions</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">27</column>
+            <column name="IMAGE">ProductCategoryImages/fationAccessories.jpg</column>
+            <column name="NAME">Fashion Accessories &amp; Gear</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">28</column>
+            <column name="IMAGE">ProductCategoryImages/herbalAyurvedic.jpg</column>
+            <column name="NAME">Herbal &amp; Ayurvedic Product</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">29</column>
+            <column name="IMAGE">ProductCategoryImages/SecuritySystems.jpg</column>
+            <column name="NAME">Security Systems &amp; Services</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">30</column>
+            <column name="IMAGE">ProductCategoryImages/SportGoods.jpg</column>
+            <column name="NAME">Sports Goods, Toys &amp; Games</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">31</column>
+            <column name="IMAGE">ProductCategoryImages/TelecomeEquipment.jpg</column>
+            <column name="NAME">Telecom Equipment &amp; Goods</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">32</column>
+            <column name="IMAGE">ProductCategoryImages/PaperPaperProduct.gif</column>
+            <column name="NAME">Paper &amp; Paper Products</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">33</column>
+            <column name="IMAGE">ProductCategoryImages/bagsBeltsWallets.jpg</column>
+            <column name="NAME">Bags, Belts &amp; Wallets</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">34</column>
+            <column name="IMAGE">ProductCategoryImages/MediaPR.jpg</column>
+            <column name="NAME">Media, PR &amp; Publishing</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">35</column>
+            <column name="IMAGE">ProductCategoryImages/MarbleGrenite.jpg</column>
+            <column name="NAME">Marble, Granite &amp; Stones</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">36</column>
+            <column name="IMAGE">ProductCategoryImages/eventPlanner.jpg</column>
+            <column name="NAME">Event Planner &amp; Organizer</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">37</column>
+            <column name="IMAGE">ProductCategoryImages/itTelecom.jpg</column>
+            <column name="NAME">IT &amp; Telecom Services</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">38</column>
+            <column name="IMAGE">ProductCategoryImages/ProductRentalLeasing.jpg</column>
+            <column name="NAME">Product Rental &amp; Leasing</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">39</column>
+            <column name="IMAGE">ProductCategoryImages/Transportation.jpg</column>
+            <column name="NAME">Transportation &amp; Logistics</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">40</column>
+            <column name="IMAGE">ProductCategoryImages/businessAudit.jpg</column>
+            <column name="NAME">Business &amp; Audit Services</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">41</column>
+            <column name="IMAGE">ProductCategoryImages/financialLegal.jpg</column>
+            <column name="NAME">Financial &amp; Legal Service</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">42</column>
+            <column name="IMAGE">ProductCategoryImages/educationTraining.jpg</column>
+            <column name="NAME">Education &amp; Training</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">43</column>
+            <column name="IMAGE">ProductCategoryImages/TravelandTourism.jpg</column>
+            <column name="NAME">Travel, Tourism &amp; Hotels</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">44</column>
+            <column name="IMAGE">ProductCategoryImages/call center.jpg</column>
+            <column name="NAME">Call Center &amp; BPO Services</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">45</column>
+            <column name="IMAGE">ProductCategoryImages/bicycle.jpg</column>
+            <column name="NAME">Bicycle, Rickshaw &amp; Spares</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">46</column>
+            <column name="IMAGE">ProductCategoryImages/RD and Test lab.jpg</column>
+            <column name="NAME">R&amp;D and Testing Labs</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">47</column>
+            <column name="IMAGE">ProductCategoryImages/ArchitectureInterior design.jpg</column>
+            <column name="NAME">Architecture &amp; Interiors</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">48</column>
+            <column name="IMAGE">ProductCategoryImages/hrPlanning.jpg</column>
+            <column name="NAME">HR Planning &amp; Recruitment</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">49</column>
+            <column name="IMAGE">ProductCategoryImages/RailShipping.jpg</column>
+            <column name="NAME">Rail, Shipping &amp; Aviation</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">50</column>
+            <column name="IMAGE">ProductCategoryImages/Leather Product.png</column>
+            <column name="NAME">Leather Products</column>
+        </table>
+        <table name="productcategorydetail">
+            <column name="ID">51</column>
+            <column name="IMAGE">ProductCategoryImages/Contractfreelancer.jpg</column>
+            <column name="NAME">Contractors &amp; Freelancers</column>
+        </table>
+        <!-- Table productdetail -->
+        <table name="productdetail">
+            <column name="productid">12</column>
+            <column name="productname">jbjkjk</column>
+            <column name="productimagepath">productimages/jbjkjk.jpg</column>
+            <column name="productdescription">nlkknkl</column>
+            <column name="productprice">9000</column>
+            <column name="unitid">5</column>
+            <column name="businessid">52</column>
+            <column name="categoryid">1</column>
+            <column name="vendorid">11</column>
+        </table>
+        <table name="productdetail">
+            <column name="productid">14</column>
+            <column name="productname">an</column>
+            <column name="productimagepath">productimages/an.jpg</column>
+            <column name="productdescription">bjnkjl</column>
+            <column name="productprice">2147483647</column>
+            <column name="unitid">60</column>
+            <column name="businessid">54</column>
+            <column name="categoryid">21</column>
+            <column name="vendorid">12</column>
+        </table>
+        <table name="productdetail">
+            <column name="productid">15</column>
+            <column name="productname">kevin</column>
+            <column name="productimagepath">productimages/kevin.jpg</column>
+            <column name="productdescription">bgsvj,kn</column>
+            <column name="productprice">0</column>
+            <column name="unitid">5</column>
+            <column name="businessid">52</column>
+            <column name="categoryid">7</column>
+            <column name="vendorid">11</column>
+        </table>
+        <table name="productdetail">
+            <column name="productid">16</column>
+            <column name="productname">mobile phone</column>
+            <column name="productimagepath">productimages/mobile phone.jpg</column>
+            <column name="productdescription">jhguhj</column>
+            <column name="productprice">500</column>
+            <column name="unitid">50</column>
+            <column name="businessid">58</column>
+            <column name="categoryid">9</column>
+            <column name="vendorid">39</column>
+        </table>
+        <table name="productdetail">
+            <column name="productid">17</column>
+            <column name="productname">my product</column>
+            <column name="productimagepath">productimages/my product19671.jpg</column>
+            <column name="productdescription">jhikjoilk</column>
+            <column name="productprice">600</column>
+            <column name="unitid">2</column>
+            <column name="businessid">60</column>
+            <column name="categoryid">26</column>
+            <column name="vendorid">39</column>
+        </table>
+        <table name="productdetail">
+            <column name="productid">18</column>
+            <column name="productname">jknvlk</column>
+            <column name="productimagepath">productimages/jknvlk31941.jpg</column>
+            <column name="productdescription">kj;oikljo</column>
+            <column name="productprice">800</column>
+            <column name="unitid">3</column>
+            <column name="businessid">60</column>
+            <column name="categoryid">26</column>
+            <column name="vendorid">39</column>
+        </table>
+        <table name="productdetail">
+            <column name="productid">19</column>
+            <column name="productname">kauhlwrg</column>
+            <column name="productimagepath">productimages/kauhlwrg21864.jpg</column>
+            <column name="productdescription">wiuetbkjhrng,</column>
+            <column name="productprice">25000</column>
+            <column name="unitid">3</column>
+            <column name="businessid">60</column>
+            <column name="categoryid">26</column>
+            <column name="vendorid">39</column>
+        </table>
+        <!-- Table reviewdetail -->
+        <table name="reviewdetail">
+            <column name="reviewid">1</column>
+            <column name="firstname">Taral</column>
+            <column name="lastname">Patel</column>
+            <column name="cno">2147483647</column>
+            <column name="email">rushitpandya@gmail.com</column>
+            <column name="password">9099088628</column>
+        </table>
+        <table name="reviewdetail">
+            <column name="reviewid">2</column>
+            <column name="firstname">Rushit</column>
+            <column name="lastname">Pandya</column>
+            <column name="cno">2147483647</column>
+            <column name="email">rushitpandya@gmail.com</column>
+            <column name="password">123</column>
+        </table>
+        <table name="reviewdetail">
+            <column name="reviewid">3</column>
+            <column name="firstname">Rushit</column>
+            <column name="lastname">Pandya</column>
+            <column name="cno">9099088628</column>
+            <column name="email">rushit@gmail.com</column>
+            <column name="password">123</column>
+        </table>
+        <table name="reviewdetail">
+            <column name="reviewid">4</column>
+            <column name="firstname">Taral</column>
+            <column name="lastname">Patel</column>
+            <column name="cno">1234567890</column>
+            <column name="email">taral@gmail.com</column>
+            <column name="password">taral</column>
+        </table>
+        <table name="reviewdetail">
+            <column name="reviewid">5</column>
+            <column name="firstname">Pratik</column>
+            <column name="lastname">Rathod</column>
+            <column name="cno">8866200360</column>
+            <column name="email">pr@gmail.com</column>
+            <column name="password">pr123</column>
+        </table>
+        <!-- Table rikshawbanner -->
+        <table name="rikshawbanner">
+            <column name="rid">2</column>
+            <column name="size">2</column>
+            <column name="quantity">200</column>
+            <column name="month1">500</column>
+            <column name="month2">6000</column>
+            <column name="month3">8000</column>
+        </table>
+        <table name="rikshawbanner">
+            <column name="rid">3</column>
+            <column name="size">1</column>
+            <column name="quantity">200</column>
+            <column name="month1">5000</column>
+            <column name="month2">6000</column>
+            <column name="month3">7000</column>
+        </table>
+        <table name="rikshawbanner">
+            <column name="rid">4</column>
+            <column name="size">2</column>
+            <column name="quantity">200</column>
+            <column name="month1">5000</column>
+            <column name="month2">6000</column>
+            <column name="month3">7000</column>
+        </table>
+        <table name="rikshawbanner">
+            <column name="rid">8</column>
+            <column name="size">2</column>
+            <column name="quantity">600</column>
+            <column name="month1">10000</column>
+            <column name="month2">20000</column>
+            <column name="month3">24000</column>
+        </table>
+        <table name="rikshawbanner">
+            <column name="rid">9</column>
+            <column name="size">1</column>
+            <column name="quantity">600</column>
+            <column name="month1">10000</column>
+            <column name="month2">20000</column>
+            <column name="month3">25000</column>
+        </table>
+        <table name="rikshawbanner">
+            <column name="rid">21</column>
+            <column name="size">1</column>
+            <column name="quantity">800</column>
+            <column name="month1">9000</column>
+            <column name="month2">11000</column>
+            <column name="month3">12000</column>
+        </table>
+        <table name="rikshawbanner">
+            <column name="rid">22</column>
+            <column name="size">2</column>
+            <column name="quantity">1000</column>
+            <column name="month1">5000</column>
+            <column name="month2">7000</column>
+            <column name="month3">8000</column>
+        </table>
+        <!-- Table rikshawbannerdetail -->
+        <table name="rikshawbannerdetail">
+            <column name="bnid">12</column>
+            <column name="bannername">dsb</column>
+            <column name="size">1</column>
+            <column name="quantity">600</column>
+            <column name="duration">1</column>
+            <column name="price">10000</column>
+            <column name="requestdate">2016-03-02</column>
+            <column name="businessid">60</column>
+        </table>
+        <table name="rikshawbannerdetail">
+            <column name="bnid">13</column>
+            <column name="bannername">new banner1</column>
+            <column name="size">2</column>
+            <column name="quantity">200</column>
+            <column name="duration">2</column>
+            <column name="price">6000</column>
+            <column name="requestdate">2016-03-02</column>
+            <column name="businessid">60</column>
+        </table>
+        <table name="rikshawbannerdetail">
+            <column name="bnid">14</column>
+            <column name="bannername">rushit</column>
+            <column name="size">2</column>
+            <column name="quantity">600</column>
+            <column name="duration">3</column>
+            <column name="price">25000</column>
+            <column name="requestdate">2016-03-03</column>
+            <column name="businessid">60</column>
+        </table>
+        <table name="rikshawbannerdetail">
+            <column name="bnid">15</column>
+            <column name="bannername">bhjn</column>
+            <column name="size">1</column>
+            <column name="quantity">200</column>
+            <column name="duration">1</column>
+            <column name="price">0</column>
+            <column name="requestdate">2016-03-03</column>
+            <column name="businessid">60</column>
+        </table>
+        <table name="rikshawbannerdetail">
+            <column name="bnid">16</column>
+            <column name="bannername">kjnkmjhj</column>
+            <column name="size">1</column>
+            <column name="quantity">200</column>
+            <column name="duration">1</column>
+            <column name="price">0</column>
+            <column name="requestdate">2016-03-03</column>
+            <column name="businessid">60</column>
+        </table>
+        <!-- Table rikshawbannersize -->
+        <table name="rikshawbannersize">
+            <column name="size">1</column>
+            <column name="sizename">3 X 1.5</column>
+        </table>
+        <table name="rikshawbannersize">
+            <column name="size">2</column>
+            <column name="sizename">1.5 X 1.5</column>
+        </table>
+        <!-- Table rikshawdetail -->
+        <table name="rikshawdetail">
+            <column name="roid">4</column>
+            <column name="name">kevin dadhania</column>
+            <column name="mobile1">8866200360</column>
+            <column name="mobile2">1234567890</column>
+            <column name="rikshawno">gj-23-0268</column>
+            <column name="parkingloc">anand-nadiad</column>
+            <column name="drivingroute">hcgjvhbjnkm,</column>
+            <column name="address">hcgjvhkbjnkml,</column>
+            <column name="adpackage">month2</column>
+        </table>
+        <table name="rikshawdetail">
+            <column name="roid">6</column>
+            <column name="name">kevin</column>
+            <column name="mobile1">4685245145</column>
+            <column name="mobile2">1234567890</column>
+            <column name="rikshawno">gj-23-0268</column>
+            <column name="parkingloc">anand-jetpur</column>
+            <column name="drivingroute">hcgjvhbjnkm,</column>
+            <column name="address">not yet decided</column>
+            <column name="adpackage">month4</column>
+        </table>
+        <!-- Table socialmediapackagedetail -->
+        <!-- Table socialsharingdetail -->
+        <!-- Table templateprinting -->
+        <table name="templateprinting">
+            <column name="tid">1</column>
+            <column name="quantity">1000</column>
+            <column name="sidea51">200</column>
+            <column name="sidea52">350</column>
+            <column name="sidea41">250</column>
+            <column name="sidea42">200</column>
+            <column name="sidea31">260</column>
+            <column name="sidea32">100</column>
+        </table>
+        <table name="templateprinting">
+            <column name="tid">4</column>
+            <column name="quantity">2000</column>
+            <column name="sidea51">200</column>
+            <column name="sidea52">200</column>
+            <column name="sidea41">200</column>
+            <column name="sidea42">605</column>
+            <column name="sidea31">708</column>
+            <column name="sidea32">905</column>
+        </table>
+        <!-- Table templateprintingdetail -->
+        <table name="templateprintingdetail">
+            <column name="tempid">1</column>
+            <column name="templatename">new template</column>
+            <column name="size">5</column>
+            <column name="side">1</column>
+            <column name="quantity">1000</column>
+            <column name="price">200</column>
+            <column name="requestdate">2016-03-03</column>
+            <column name="businessid">60</column>
+        </table>
+        <table name="templateprintingdetail">
+            <column name="tempid">2</column>
+            <column name="templatename">hjbknm</column>
+            <column name="size">4</column>
+            <column name="side">2</column>
+            <column name="quantity">2000</column>
+            <column name="price">605</column>
+            <column name="requestdate">2016-03-03</column>
+            <column name="businessid">60</column>
+        </table>
+        <table name="templateprintingdetail">
+            <column name="tempid">3</column>
+            <column name="templatename">bikjv</column>
+            <column name="size">4</column>
+            <column name="side">1</column>
+            <column name="quantity">1000</column>
+            <column name="price">250</column>
+            <column name="requestdate">2016-03-03</column>
+            <column name="businessid">60</column>
+        </table>
+        <!-- Table unit -->
+        <table name="unit">
+            <column name="ID">1</column>
+            <column name="NAME"> Bag </column>
+        </table>
+        <table name="unit">
+            <column name="ID">3</column>
+            <column name="NAME">Barrel     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">4</column>
+            <column name="NAME">Barrels     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">5</column>
+            <column name="NAME">Bushel </column>
+        </table>
+        <table name="unit">
+            <column name="ID">7</column>
+            <column name="NAME">Cubic Meter     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">8</column>
+            <column name="NAME">Dozen     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">9</column>
+            <column name="NAME">Gallon     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">10</column>
+            <column name="NAME">Gram     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">11</column>
+            <column name="NAME">Kilogram     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">12</column>
+            <column name="NAME">Kilometer     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">13</column>
+            <column name="NAME">Long Ton     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">14</column>
+            <column name="NAME">Liter     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">15</column>
+            <column name="NAME">Meter     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">16</column>
+            <column name="NAME">Metric Ton     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">17</column>
+            <column name="NAME">Ounce     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">18</column>
+            <column name="NAME">Pair     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">19</column>
+            <column name="NAME">Pack     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">20</column>
+            <column name="NAME">Packs     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">21</column>
+            <column name="NAME">Piece     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">22</column>
+            <column name="NAME">Pieces     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">23</column>
+            <column name="NAME">Pound     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">24</column>
+            <column name="NAME">Set     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">25</column>
+            <column name="NAME">Sets     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">26</column>
+            <column name="NAME">Short Ton     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">27</column>
+            <column name="NAME">Square Meter     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">28</column>
+            <column name="NAME">Square Feet     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">29</column>
+            <column name="NAME">Square Inch     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">30</column>
+            <column name="NAME">Bottle(s)     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">33</column>
+            <column name="NAME"> Strips     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">34</column>
+            <column name="NAME">Ton     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">35</column>
+            <column name="NAME">Pin     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">36</column>
+            <column name="NAME">Box(s)     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">37</column>
+            <column name="NAME">Carat     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">38</column>
+            <column name="NAME">Carton     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">39</column>
+            <column name="NAME">Cubic Feet     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">40</column>
+            <column name="NAME">Day     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">41</column>
+            <column name="NAME">Foot     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">42</column>
+            <column name="NAME">Hour(s)     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">43</column>
+            <column name="NAME">Hectare(s)     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">44</column>
+            <column name="NAME">No(s)     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">45</column>
+            <column name="NAME">Packet     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">46</column>
+            <column name="NAME">Person     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">47</column>
+            <column name="NAME">Ream     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">48</column>
+            <column name="NAME">Roll     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">49</column>
+            <column name="NAME">Sheet     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">50</column>
+            <column name="NAME">Unit     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">51</column>
+            <column name="NAME">Watt     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">52</column>
+            <column name="NAME">Megawatts     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">53</column>
+            <column name="NAME">Kilowatt     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">54</column>
+            <column name="NAME">Inch(s)     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">55</column>
+            <column name="NAME"> Millimeter     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">56</column>
+            <column name="NAME">Plate(s)     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">57</column>
+            <column name="NAME">Person(s)     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">58</column>
+            <column name="NAME">Annum     </column>
+        </table>
+        <table name="unit">
+            <column name="ID">59</column>
+            <column name="NAME">Bags</column>
+        </table>
+        <!-- Table vendordetail -->
+        <table name="vendordetail">
+            <column name="vendorid">12</column>
+            <column name="categoryid">26</column>
+            <column name="firstname">pratik</column>
+            <column name="lastname">dadhaniya</column>
+            <column name="vendoraddress">nelkhbf</column>
+            <column name="vendorcno">8866200360</column>
+            <column name="vendoremail">pk@gmail.com</column>
+            <column name="gender">male</column>
+            <column name="birthdate">2016-02-19</column>
+            <column name="username">kevin</column>
+            <column name="password">1234</column>
+            <column name="pincode">607080</column>
+            <column name="businessid">65</column>
+            <column name="vendorimagepath">VendorImages/12.jpg</column>
+        </table>
+        <table name="vendordetail">
+            <column name="vendorid">15</column>
+            <column name="categoryid">10</column>
+            <column name="firstname">Rushit</column>
+            <column name="lastname">Pandya</column>
+            <column name="vendoraddress">yfyfyf</column>
+            <column name="vendorcno">9099088628</column>
+            <column name="vendoremail">rushitpandya@gmail.com</column>
+            <column name="gender">male</column>
+            <column name="birthdate">2016-02-05</column>
+            <column name="username">rushit</column>
+            <column name="password">123456</column>
+            <column name="pincode">389350</column>
+            <column name="businessid">64</column>
+            <column name="vendorimagepath">vendorimages/15.jpg</column>
+        </table>
+        <table name="vendordetail">
+            <column name="vendorid">39</column>
+            <column name="categoryid">26</column>
+            <column name="firstname">pratik</column>
+            <column name="lastname">rathod</column>
+            <column name="vendoraddress">anand</column>
+            <column name="vendorcno">8866200360</column>
+            <column name="vendoremail">pkrathod1994@gmail.com</column>
+            <column name="gender">male</column>
+            <column name="birthdate">2016-02-26</column>
+            <column name="username">pratik</column>
+            <column name="password">pr123</column>
+            <column name="pincode">388120</column>
+            <column name="businessid">60</column>
+            <column name="vendorimagepath">VendorImages/39.jpg</column>
+        </table>
+        <table name="vendordetail">
+            <column name="vendorid">40</column>
+            <column name="categoryid">26</column>
+            <column name="firstname">taral</column>
+            <column name="lastname">patel</column>
+            <column name="vendoraddress">chaklasi</column>
+            <column name="vendorcno">7080904050</column>
+            <column name="vendoremail">tr@gmail.com</column>
+            <column name="gender">male</column>
+            <column name="birthdate">2016-02-02</column>
+            <column name="username">taral</column>
+            <column name="password">1234</column>
+            <column name="pincode">206050</column>
+            <column name="businessid">66</column>
+            <column name="vendorimagepath">VendorImages/40.jpg</column>
+        </table>
+    </database>
+</pma_xml_export>

@@ -1,0 +1,53 @@
+.input-field label {
+     color: #e53935;
+   }
+    .input-field input[type=text] 
+	{
+		border-bottom: 1px solid #e53935;
+	}
+  .input-field  input[type=password]
+   {
+	   border-bottom: 1px solid #e53935;
+   }
+   .input-field  input[type=email]
+   {
+	   border-bottom: 1px solid #e53935;
+   }
+   .input-field  input[type=number]
+   {
+	   border-bottom: 1px solid #e53935;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #e53935;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #e53935;
+     box-shadow: 0 1px 0 0 #e53935;
+   }
+   /* valid color */
+   .input-field input[type=text].valid {
+     border-bottom: 1px solid #e53935;
+     box-shadow: 0 1px 0 0 #e53935;
+   }
+   /* invalid color */
+   .input-field input[type=text].invalid {
+     border-bottom: 1px solid #e53935;
+     box-shadow: 0 1px 0 0 #e53935;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: #e53935;
+   }
+   
+   .card .card-image .card-title {
+    color: #fff;
+    position: absolute;
+    bottom: 40%;
+    left:40%;
+    padding: 20px;
+	position: absolute; width: 100%; height: 100px;  left: 0px; color: #000; 
+	background: white; text-align:center; font-weight:bold; opacity:0.7; 
+}
+

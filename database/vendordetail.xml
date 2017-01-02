@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.1.14
+- http://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: Mar 05, 2016 at 05:38 AM
+- Server version: 5.6.17
+- PHP Version: 5.5.12
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="vvnlive" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="vendordetail">
+                CREATE TABLE `vendordetail` (
+                  `vendorid` int(200) NOT NULL AUTO_INCREMENT,
+                  `categoryid` int(200) NOT NULL,
+                  `firstname` varchar(100) NOT NULL,
+                  `lastname` varchar(100) NOT NULL,
+                  `vendoraddress` varchar(200) NOT NULL,
+                  `vendorcno` bigint(200) NOT NULL,
+                  `vendoremail` varchar(100) NOT NULL,
+                  `gender` varchar(10) NOT NULL,
+                  `birthdate` date NOT NULL,
+                  `username` varchar(100) NOT NULL,
+                  `password` varchar(200) NOT NULL,
+                  `pincode` bigint(100) NOT NULL,
+                  `businessid` int(50) NOT NULL,
+                  `vendorimagepath` varchar(100) NOT NULL,
+                  PRIMARY KEY (`vendorid`),
+                  KEY `categoryid` (`categoryid`),
+                  KEY `categoryid_2` (`categoryid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'vvnlive'
+    -->
+    <database name="vvnlive">
+        <!-- Table vendordetail -->
+        <table name="vendordetail">
+            <column name="vendorid">12</column>
+            <column name="categoryid">26</column>
+            <column name="firstname">pratik</column>
+            <column name="lastname">dadhaniya</column>
+            <column name="vendoraddress">nelkhbf</column>
+            <column name="vendorcno">8866200360</column>
+            <column name="vendoremail">pk@gmail.com</column>
+            <column name="gender">male</column>
+            <column name="birthdate">2016-02-19</column>
+            <column name="username">kevin</column>
+            <column name="password">1234</column>
+            <column name="pincode">607080</column>
+            <column name="businessid">65</column>
+            <column name="vendorimagepath">VendorImages/12.jpg</column>
+        </table>
+        <table name="vendordetail">
+            <column name="vendorid">15</column>
+            <column name="categoryid">10</column>
+            <column name="firstname">Rushit</column>
+            <column name="lastname">Pandya</column>
+            <column name="vendoraddress">yfyfyf</column>
+            <column name="vendorcno">9099088628</column>
+            <column name="vendoremail">rushitpandya@gmail.com</column>
+            <column name="gender">male</column>
+            <column name="birthdate">2016-02-05</column>
+            <column name="username">rushit</column>
+            <column name="password">123456</column>
+            <column name="pincode">389350</column>
+            <column name="businessid">64</column>
+            <column name="vendorimagepath">vendorimages/15.jpg</column>
+        </table>
+        <table name="vendordetail">
+            <column name="vendorid">39</column>
+            <column name="categoryid">26</column>
+            <column name="firstname">pratik</column>
+            <column name="lastname">rathod</column>
+            <column name="vendoraddress">anand</column>
+            <column name="vendorcno">8866200360</column>
+            <column name="vendoremail">pkrathod1994@gmail.com</column>
+            <column name="gender">male</column>
+            <column name="birthdate">2016-02-26</column>
+            <column name="username">pratik</column>
+            <column name="password">pr123</column>
+            <column name="pincode">388120</column>
+            <column name="businessid">60</column>
+            <column name="vendorimagepath">VendorImages/39.jpg</column>
+        </table>
+        <table name="vendordetail">
+            <column name="vendorid">40</column>
+            <column name="categoryid">26</column>
+            <column name="firstname">taral</column>
+            <column name="lastname">patel</column>
+            <column name="vendoraddress">chaklasi</column>
+            <column name="vendorcno">7080904050</column>
+            <column name="vendoremail">tr@gmail.com</column>
+            <column name="gender">male</column>
+            <column name="birthdate">2016-02-02</column>
+            <column name="username">taral</column>
+            <column name="password">1234</column>
+            <column name="pincode">206050</column>
+            <column name="businessid">66</column>
+            <column name="vendorimagepath">VendorImages/40.jpg</column>
+        </table>
+    </database>
+</pma_xml_export>
